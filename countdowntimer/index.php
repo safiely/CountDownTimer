@@ -1,4 +1,5 @@
 <?php
-$time=date("i", strtotime("+1 minutes"));
-header("Location:index1.php?sudhir=$time");
+$min=date("i", strtotime("+2 minutes"));
+$hour=date("i");
+header("Location:form.php?min=$min&hour=$hour");
 ?>

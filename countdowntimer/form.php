@@ -1,6 +1,9 @@
 <?php
-$sudhir=$_GET["sudhir"];
-echo "your time will end with in 1 minute";
+$currenttime=date("h:i:s");
+echo "current time is :-.$currenttime.\n";
+$min=$_GET["min"];
+$hour=$_GET["hour"];
+echo "you have 2 minutes to fill the form";
 ?>
 
 
@@ -69,8 +72,9 @@ function updateClock ( )
   var currentHours = currentTime.getHours ( );
   var currentMinutes = currentTime.getMinutes ( );
   var currentSeconds = currentTime.getSeconds ( );
-  var timelimit = '<?php global $sudhir; echo $sudhir; ?>';
-  // Pad the minutes and seconds with leading zeros, if required
+  var minlimit = '<?php global $min; echo $min; ?>';
+  var hourlimit = '<?php global $hour; echo $hour; ?>';  
+// Pad the minutes and seconds with leading zeros, if required
   currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
   currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
 
@@ -87,7 +91,7 @@ function updateClock ( )
   var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
 	
   // Update the time display
-	if(currentMinutes>=timelimit)
+	if(currentMinutes>=minlimit||currentHours>hourlimit)
 	{
 		navigateToUrl("sorry.php");
 	}
